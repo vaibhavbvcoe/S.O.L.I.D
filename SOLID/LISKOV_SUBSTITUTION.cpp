@@ -5,8 +5,8 @@ using namespace std;
 #pragma endregion _HEADERS_
 /// <summary>
 /// LISKOV SUBSTITUTION Principle suggests that Objects of superclass can be should be replaceable with objects of subclass without altering the correctness of program.
-/// In the below example class CheckBirdFly checks for the Bird can fly or not...Ostrich cannot fly..so this would break the functionality and throw an exception.
-/// to correct it we can decouple the bird in two cateogories[FlyingBird,NonFlyingBird] both of these classes would be derived from the base class IBird.
+/// In the below example process(Rectangle& rectangle) function behaves differently in case square is passed.
+/// to correct it we can decouple the rectangle classd dependency by creating an abstract class ISHAPE which would
 /// </summary>
 /// 
 
@@ -158,12 +158,12 @@ public:
 
 void process(IShape* shp)
 {
-    int width = rectangle.get_width();
+    int width = shp->get_width();
     int height = 10;
-    rectangle.set_height(height);
+    shp->set_height(height);
 
     cout << "Expected area: " << (width * height)
-        << ", calculated: " << rectangle.calc_area() << endl;
+        << ", calculated: " << shp->calc_area() << endl;
 
 
     int h = shp->get_height();
